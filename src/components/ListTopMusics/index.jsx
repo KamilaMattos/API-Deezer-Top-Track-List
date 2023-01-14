@@ -1,6 +1,23 @@
-import api from "../../services/api"
-//import axios from "axios"
+import {
+  Box,
+  Button,
+  ButtonGroup,
+  Card,
+  CardBody,
+  CardFooter,
+  Divider,
+  Flex,
+  Heading,
+  Image,
+  Link,
+  Stack,
+  Text,
+} from "@chakra-ui/react"
+import { FaPlay, FaPause, FaDeezer, FaStar } from "react-icons/fa"
+import CardMusic from "../CardMusic"
 
-const ListTopMusics = () => {}
+const ListTopMusics = () => {
+  return <ul></ul>
+}
 
 export default ListTopMusics
