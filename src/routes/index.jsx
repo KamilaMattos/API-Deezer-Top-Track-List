@@ -10,7 +10,7 @@ const Router = () => (
     <GlobalStyle />
     <Routes>
       <Route path='/' element={<Home />} />
-      <Route path='/my-fav-list' element={<FavoriteTracksList />} />
+      <Route path='/favorites' element={<FavoriteTracksList />} />
     </Routes>
   </>
 )
