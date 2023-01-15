@@ -4,7 +4,7 @@ import ColorThemeSwitcher from "../ColorThemeSwitcher"
 import SearchInput from "../SearchInput"
 import { Link } from "react-router-dom"
 
-const Header = () => {
+const Header = ({ searchMusics, musics }) => {
   const navBackGround = useColorModeValue("gray.50", "gray.900")
   const navBorder = useColorModeValue("gray.200", "gray.700")
   return (
@@ -32,7 +32,7 @@ const Header = () => {
           </Link>
         </Flex>
         <Flex flex='1' justify='flex-end'>
-          <SearchInput />
+          <SearchInput searchMusics={searchMusics} />
           <ColorThemeSwitcher />
         </Flex>
       </Flex>
