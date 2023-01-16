@@ -14,8 +14,9 @@ import {
   Text,
   Tooltip,
 } from "@chakra-ui/react"
-import { useState } from "react"
+import { useCallback } from "react"
 import { FaPlay, FaPause, FaDeezer, FaStar } from "react-icons/fa"
+import { useNavigate } from "react-router-dom"
 
 const CardMusic = ({ musics }) => {
   const secondsToMinutes = (seconds) => {
@@ -74,7 +75,12 @@ const CardMusic = ({ musics }) => {
               </CardBody>
               <Divider />
               <CardFooter>
-                <ButtonGroup justifyContent={"center"} spacing='2'>
+                <audio controls>
+                  <source src={music.preview} type='audio/ogg' />
+                  <source src={music.preview} type='audio/mpeg' />
+                  Your browser does not support the audio element.
+                </audio>
+                {/* <ButtonGroup justifyContent={"center"} spacing='2'>
                   <Tooltip label={"Ouvir prévia"}>
                     <Button variant='ghost' colorScheme='blue'>
                       <FaPlay />
@@ -98,7 +104,7 @@ const CardMusic = ({ musics }) => {
                       <FaStar />
                     </Button>
                   </Tooltip>
-                </ButtonGroup>
+                </ButtonGroup> */}
               </CardFooter>
             </Card>
           </GridItem>
