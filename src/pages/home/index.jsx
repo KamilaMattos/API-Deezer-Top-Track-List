@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { useLocation } from "wouter"
 import CardMusic from "../../components/CardMusic"
 import Header from "../../components/Header"
 import api from "../../services/api"
@@ -9,7 +8,7 @@ const Home = () => {
 
   useEffect(() => {
     api
-      .get("?limit=12")
+      .get("?limit=100")
       .then((res) => setMusics(res.data.data))
       .catch((err) => console.log(err))
   }, [])
