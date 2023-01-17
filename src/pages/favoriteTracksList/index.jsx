@@ -4,7 +4,6 @@ const FavoriteTracksList = () => {
   return (
     <>
       <h1>Favorite List</h1>
-      <CardMusic />
     </>
   )
 }
