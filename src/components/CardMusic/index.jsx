@@ -11,16 +11,12 @@ import {
   Stack,
   Text,
   Tooltip,
+  Link,
 } from "@chakra-ui/react"
-import { useCallback } from "react"
-import { FaPlay, FaPause, FaDeezer, FaStar } from "react-icons/fa"
+import { FaDeezer, FaHeart } from "react-icons/fa"
+import { secondsToMinutes } from "../../utils/secondsToMinutes"
 
-const CardMusic = ({ musics }) => {
-  const secondsToMinutes = (seconds) => {
-    return (
-      (seconds - (seconds %= 60)) / 60 + (9 < seconds ? ":" : ":0") + seconds
-    )
-  }
+const CardMusic = ({ musics, handleFav }) => {
   return (
     <>
       <Text
@@ -57,31 +53,48 @@ const CardMusic = ({ musics }) => {
                 >
                   {music.title}
                 </Heading>
-                <Text fontSize={".8rem"} fontFamily={"Roboto"} noOfLines={1}>
+                <Text
+                  as={"span"}
+                  fontSize={"1rem"}
+                  fontFamily={"Roboto"}
+                  noOfLines={1}
+                  color='gray.500'
+                >
                   {music.artist.name}
                 </Text>
-                <Text fontSize={".8rem"} fontFamily={"Roboto"} noOfLines={1}>
+                <Text fontSize={".9rem"} fontFamily={"Roboto"} noOfLines={1}>
                   Album: {music.album.title}
                 </Text>
-                <Text fontSize={".8rem"} fontFamily={"Roboto"} noOfLines={1}>
+                <Text
+                  fontSize={".8rem"}
+                  fontFamily={"Roboto"}
+                  noOfLines={1}
+                  color='gray.500'
+                >
                   Duração: {secondsToMinutes(music.duration)}
                 </Text>
               </Stack>
             </CardBody>
             <Divider />
-            <ButtonGroup justifyContent={"center"} spacing='2'>
+            <ButtonGroup justifyContent={"center"} spacing='5' mt={".5rem"}>
               <Tooltip label={"Adicionar aos favoritos"}>
-                <Button variant='ghost' colorScheme='blue'>
-                  <FaStar />
+                <Button
+                  onClick={() => handleFav(music.id)}
+                  variant='ghost'
+                  colorScheme={"blue"}
+                >
+                  <FaHeart />
                 </Button>
               </Tooltip>
               <Tooltip label={"Ouvir na Deezer"}>
-                <Button variant='ghost' colorScheme='blue'>
-                  <FaDeezer />
-                </Button>
+                <Link href={music.link} isExternal>
+                  <Button variant='ghost' colorScheme='blue'>
+                    <FaDeezer />
+                  </Button>
+                </Link>
               </Tooltip>
             </ButtonGroup>
-            <CardFooter>
+            <CardFooter mt='-4'>
               <audio controls>
                 <source src={music.preview} type='audio/ogg' />
                 <source src={music.preview} type='audio/mpeg' />
