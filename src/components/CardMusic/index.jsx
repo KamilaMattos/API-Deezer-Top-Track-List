@@ -48,7 +48,7 @@ const CardMusic = ({ musics }) => {
                 alt={music.title}
                 borderRadius='lg'
               />
-              <Stack mt='5' spacing='2'>
+              <Stack mt='2' spacing='1'>
                 <Heading
                   color='blue.600'
                   size='md'
@@ -69,18 +69,23 @@ const CardMusic = ({ musics }) => {
               </Stack>
             </CardBody>
             <Divider />
+            <ButtonGroup justifyContent={"center"} spacing='2'>
+              <Tooltip label={"Adicionar aos favoritos"}>
+                <Button variant='ghost' colorScheme='blue'>
+                  <FaStar />
+                </Button>
+              </Tooltip>
+              <Tooltip label={"Ouvir na Deezer"}>
+                <Button variant='ghost' colorScheme='blue'>
+                  <FaDeezer />
+                </Button>
+              </Tooltip>
+            </ButtonGroup>
             <CardFooter>
               <audio controls>
                 <source src={music.preview} type='audio/ogg' />
                 <source src={music.preview} type='audio/mpeg' />
               </audio>
-              {/* <ButtonGroup justifyContent={"center"} spacing='2'>
-                    <Tooltip label={"Adicionar aos favoritos"}>
-                      <Button variant='ghost' colorScheme='blue'>
-                        <FaStar />
-                      </Button>
-                    </Tooltip>
-                  </ButtonGroup> */}
             </CardFooter>
           </Card>
         ))}

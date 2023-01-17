@@ -8,7 +8,7 @@ const Home = () => {
 
   useEffect(() => {
     api
-      .get("?limit=100")
+      .get("1111141961/tracks")
       .then((res) => setMusics(res.data.data))
       .catch((err) => console.log(err))
   }, [])

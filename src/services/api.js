@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const baseUrl = "https://api.deezer.com/chart/0/tracks"
+const baseUrl = "https://api.deezer.com/playlist/"
 
 const api = axios.create({
   baseURL: baseUrl,
