@@ -65,6 +65,11 @@ const App = () => {
       })
     }
   }
+
+  function handleDeleteFav(idFavToRemove) {
+    const findMusic = favList.filter((fav) => fav.id !== idFavToRemove)
+    setFavList(findMusic)
+  }
   return (
     <ChakraProvider theme={theme}>
       <Router
@@ -72,6 +77,7 @@ const App = () => {
         searchMusics={searchMusics}
         handleFav={handleFav}
         favList={favList}
+        handleDeleteFav={handleDeleteFav}
       />
     </ChakraProvider>
   )
