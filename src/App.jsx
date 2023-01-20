@@ -10,29 +10,33 @@ import api from "./services/api"
 const App = () => {
   const [musics, setMusics] = useState([])
   const [favList, setFavList] = useState([])
+  // const [search, setSearch] = useState("")
 
   const toast = useToast()
 
   useEffect(() => {
-    api
-      .get("1111141961/tracks")
-      .then((res) => setMusics(res.data.data))
-      .catch((err) => console.log(err))
+    getTopMusics()
   }, [])
 
-  function searchMusics(value) {
-    const finderedMusic = musics.filter((music) => {
-      return (
-        music.title.toLowerCase().includes(value.toLowerCase()) ||
-        music.artist.name.toLowerCase().includes(value.toLowerCase()) ||
-        music.album.title.toLowerCase().includes(value.toLowerCase())
-      )
-    })
-    if (finderedMusic.length > 0) {
-      setMusics(finderedMusic)
-    } else {
-      setMusics([])
-    }
+  function getTopMusics() {
+    api
+      .get("playlist/1111141961/tracks")
+      .then((res) => setMusics(res.data.data))
+      .catch((err) => console.log(err))
+  }
+
+  function searchMusic(str) {
+    console.log(str)
+    api
+      .get(`search?q=${str}&index=25`)
+      .then((res) => {
+        if (str === "") {
+          return res.data.data
+        } else {
+          setMusics(res.data.data)
+        }
+      })
+      .catch((err) => console.log(err))
   }
 
   function handleFav(id) {
@@ -74,9 +78,10 @@ const App = () => {
     <ChakraProvider theme={theme}>
       <Router
         musics={musics}
-        searchMusics={searchMusics}
-        handleFav={handleFav}
+        setMusics={setMusics}
+        searchMusic={searchMusic}
         favList={favList}
+        handleFav={handleFav}
         handleDeleteFav={handleDeleteFav}
       />
     </ChakraProvider>

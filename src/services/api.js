@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const CORS = "https://api.allorigins.win/raw?url="
-const apiUrl = "https://api.deezer.com/playlist/"
+const apiUrl = "https://api.deezer.com/"
 
 const api = axios.create({
   baseURL: CORS + apiUrl,

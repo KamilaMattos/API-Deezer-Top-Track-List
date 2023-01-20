@@ -5,7 +5,18 @@ import GlobalStyle from "../styles/global"
 import Home from "../pages/home"
 import FavoriteTracksList from "../pages/favoriteTracksList"
 
-const Router = ({ musics, searchMusics, handleFav, favList, handleDeleteFav }) => (
+//musics, searchMusic, handleFav, favList, handleDeleteFav
+
+const Router = ({
+  musics,
+  setMusics,
+  searchMusic,
+  handleFav,
+  handleDeleteFav,
+  favList,
+  search,
+  setSearch,
+}) => (
   <>
     <GlobalStyle />
     <Routes>
@@ -14,14 +25,22 @@ const Router = ({ musics, searchMusics, handleFav, favList, handleDeleteFav }) =
         element={
           <Home
             musics={musics}
-            searchMusics={searchMusics}
+            setMusics={setMusics}
+            searchMusic={searchMusic}
             handleFav={handleFav}
+            search={search}
           />
         }
       />
       <Route
         path='/favorites'
-        element={<FavoriteTracksList handleFav={handleFav} favList={favList} handleDeleteFav={handleDeleteFav} />}
+        element={
+          <FavoriteTracksList
+            handleFav={handleFav}
+            favList={favList}
+            handleDeleteFav={handleDeleteFav}
+          />
+        }
       />
     </Routes>
   </>
