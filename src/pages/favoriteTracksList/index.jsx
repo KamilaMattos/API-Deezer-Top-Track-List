@@ -19,7 +19,7 @@ import Header from "../../components/Header"
 
 import { secondsToMinutes } from "../../utils/secondsToMinutes"
 
-const FavoriteTracksList = ({ favList }) => {
+const FavoriteTracksList = ({ favList, handleDeleteFav }) => {
   return (
     <>
       <Header />
@@ -84,7 +84,7 @@ const FavoriteTracksList = ({ favList }) => {
               <ButtonGroup justifyContent={"center"} spacing='5' mt={".5rem"}>
                 <Tooltip label={"Remover dos favoritos"}>
                   <Button
-                    onClick={() => handleFav(fav.id)}
+                    onClick={() => handleDeleteFav(fav.id)}
                     variant='ghost'
                     colorScheme={"blue"}
                   >

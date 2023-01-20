@@ -25,7 +25,7 @@ const Router = ({ musics,setMusics, searchMusic, handleFav, favList, search, set
       />
       <Route
         path='/favorites'
-        element={<FavoriteTracksList handleFav={handleFav} favList={favList} />}
+        element={<FavoriteTracksList handleFav={handleFav} favList={favList} handleDeleteFav={handleDeleteFav} />}
       />
     </Routes>
   </>
