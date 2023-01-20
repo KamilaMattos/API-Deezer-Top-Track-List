@@ -10,7 +10,6 @@ import api from "./services/api"
 const App = () => {
   const [musics, setMusics] = useState([])
   const [favList, setFavList] = useState([])
-  // const [search, setSearch] = useState("")
 
   const toast = useToast()
 
@@ -26,12 +25,11 @@ const App = () => {
   }
 
   function searchMusic(str) {
-    console.log(str)
     api
       .get(`search?q=${str}&index=25`)
       .then((res) => {
         if (str === "") {
-          return res.data.data
+          return getTopMusics()
         } else {
           setMusics(res.data.data)
         }
