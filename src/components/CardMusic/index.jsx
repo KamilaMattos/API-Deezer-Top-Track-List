@@ -13,7 +13,9 @@ import {
   Tooltip,
   Link,
 } from "@chakra-ui/react"
+
 import { FaDeezer, FaHeart } from "react-icons/fa"
+
 import { secondsToMinutes } from "../../utils/secondsToMinutes"
 
 const CardMusic = ({ musics, handleFav }) => {
@@ -29,8 +31,10 @@ const CardMusic = ({ musics, handleFav }) => {
       >
         Top Brazil
       </Text>
+
       <Flex
         mt={"2rem"}
+        paddingBottom={"2rem"}
         flexDir={"row"}
         flexWrap={"wrap"}
         justifyContent={"center"}

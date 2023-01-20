@@ -13,6 +13,7 @@ import {
   Tooltip,
   Link,
 } from "@chakra-ui/react"
+
 import { FaDeezer, FaTrash } from "react-icons/fa"
 
 import Header from "../../components/Header"

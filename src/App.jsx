@@ -19,19 +19,27 @@ const App = () => {
 
   function getTopMusics() {
     api
-      .get("playlist/1111141961/tracks")
+      .get(`playlist/1111141961/tracks`)
       .then((res) => setMusics(res.data.data))
       .catch((err) => console.log(err))
   }
 
+  function debounce(func, wait) {
+    let timer = null
+    return function () {
+      clearTimeout(timer)
+      timer = setTimeout(func, wait)
+    }
+  }
+
   function searchMusic(str) {
     api
-      .get(`search?q=${str}&index=25`)
+      .get(`search?q=${str}&limit=25`)
       .then((res) => {
         if (str === "") {
           return getTopMusics()
         } else {
-          setMusics(res.data.data)
+          debounce(setMusics(res.data.data)), 500
         }
       })
       .catch((err) => console.log(err))
@@ -76,7 +84,6 @@ const App = () => {
     <ChakraProvider theme={theme}>
       <Router
         musics={musics}
-        setMusics={setMusics}
         searchMusic={searchMusic}
         favList={favList}
         handleFav={handleFav}
