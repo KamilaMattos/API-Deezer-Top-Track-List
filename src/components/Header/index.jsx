@@ -1,5 +1,5 @@
-import React from "react"
 import { Link } from "react-router-dom"
+
 import { FaHeart, FaHome } from "react-icons/fa"
 
 import {
@@ -15,7 +15,7 @@ import {
 import ColorThemeSwitcher from "../ColorThemeSwitcher"
 import SearchInput from "../SearchInput"
 
-const Header = ({ searchMusic, search }) => {
+const Header = ({ searchMusic }) => {
   const headerBackGround = useColorModeValue("gray.50", "gray.900")
   const headerBorder = useColorModeValue("gray.200", "gray.700")
 
@@ -31,19 +31,21 @@ const Header = ({ searchMusic, search }) => {
     >
       <Flex as='nav'>
         <Flex w='150px' alignItems='center'>
-          <LinkCh
-            isExternal
-            href='https://www.deezer.com/br'
-            bgGradient='linear(to-l, #7928CA,#FF0080)'
-            bgClip='text'
-            fontSize={{ base: "1.2em", md: "1.3em" }}
-            _hover=''
-          >
-            Deezer Music
-          </LinkCh>
+          <Tooltip label={"Ir ao site Deezer"}>
+            <LinkCh
+              isExternal
+              href='https://www.deezer.com/br'
+              bgGradient='linear(to-l, #7928CA,#FF0080)'
+              bgClip='text'
+              fontSize={{ base: "1.2em", md: "1.3em" }}
+              _hover=''
+            >
+              Deezer Music
+            </LinkCh>
+          </Tooltip>
         </Flex>
         <Flex flex='1' justify='center'>
-          <SearchInput searchMusic={searchMusic} search={search} />
+          <SearchInput searchMusic={searchMusic} />
           <ColorThemeSwitcher />
         </Flex>
         <Flex alignItems='center' mr={10}>
@@ -51,14 +53,14 @@ const Header = ({ searchMusic, search }) => {
             <Tooltip label={"Meus favoritos"}>
               <Link to='/favorites'>
                 <Button variant='ghost' colorScheme={"blue"}>
-                  <FaHeart />
+                  <FaHeart size={20} />
                 </Button>
               </Link>
             </Tooltip>
             <Tooltip label={"Home"}>
               <Link to='/'>
                 <Button variant='ghost' colorScheme={"blue"}>
-                  <FaHome />
+                  <FaHome size={20} />
                 </Button>
               </Link>
             </Tooltip>

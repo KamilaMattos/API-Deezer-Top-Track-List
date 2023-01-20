@@ -1,7 +1,5 @@
-import React, { useState } from "react"
 import { Box, Input } from "@chakra-ui/react"
 
-//searchMusic
 const SearchInput = ({ search, searchMusic }) => {
   return (
     <Box as='form' w={{ base: "100%", md: "70%", xl: "50%" }}>

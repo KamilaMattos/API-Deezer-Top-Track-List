@@ -1,26 +1,10 @@
 import CardMusic from "../../components/CardMusic"
 import Header from "../../components/Header"
 
-//musics, searchMusic, handleFav
-const Home = ({
-  musics,
-  setMusics,
-  searchMusic,
-  handleFav,
-  handleDeleteFav,
-  search,
-  setSearch,
-}) => {
+const Home = ({ musics, searchMusic, handleFav }) => {
   return (
     <>
-      <Header
-        setMusics={setMusics}
-        searchMusic={searchMusic}
-        search={search}
-        // setSearch={setSearch}
-        musics={musics}
-        handleDeleteFav={handleDeleteFav}
-      />
+      <Header searchMusic={searchMusic} />
       <CardMusic musics={musics} handleFav={handleFav} />
     </>
   )
