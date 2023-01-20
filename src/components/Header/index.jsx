@@ -15,8 +15,7 @@ import {
 import ColorThemeSwitcher from "../ColorThemeSwitcher"
 import SearchInput from "../SearchInput"
 
-
-const Header = ({ searchMusics, iconPage }) => {
+const Header = ({ searchMusic, search }) => {
   const headerBackGround = useColorModeValue("gray.50", "gray.900")
   const headerBorder = useColorModeValue("gray.200", "gray.700")
 
@@ -44,7 +43,7 @@ const Header = ({ searchMusics, iconPage }) => {
           </LinkCh>
         </Flex>
         <Flex flex='1' justify='center'>
-          <SearchInput searchMusics={searchMusics} />
+          <SearchInput searchMusic={searchMusic} search={search} />
           <ColorThemeSwitcher />
         </Flex>
         <Flex alignItems='center' mr={10}>
