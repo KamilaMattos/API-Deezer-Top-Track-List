@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 import { theme } from "./styles/theme"
 
-import { ChakraProvider, useToast } from "@chakra-ui/react"
+import { ChakraProvider, ColorModeScript, useToast } from "@chakra-ui/react"
 
 import Router from "./routes"
 import api from "./services/api"
@@ -82,6 +82,7 @@ const App = () => {
   }
   return (
     <ChakraProvider theme={theme}>
+      <ColorModeScript initialColorMode='dark' />
       <Router
         musics={musics}
         searchMusic={searchMusic}
