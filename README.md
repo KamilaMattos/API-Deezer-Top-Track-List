@@ -34,8 +34,8 @@ npm install --global yarn
 ````
 <br>
 
-## **Como executar o projeto em `localhost`**
-** Com o repositório clonado, abra a pasta do projeto e instale as dependências:
+## **Como executar o projeto em `localhost`:**
+Com o repositório clonado, abra a pasta do projeto e instale as dependências:
 
 ````
 yarn install
