@@ -1,4 +1,4 @@
-# Deezer-Top Track List Brazil
+# Deezer Top List Brazil
 Aplicação que lista as músicas mais tocadas no Brasil, consumindo API da Deezer.
 
 # Tecnologias e libs utilizadas:
